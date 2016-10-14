@@ -1,0 +1,4 @@
+imgs/ma01.jpg 0
+imgs/ma02.jpg 0
+imgs/monobe01.jpg 1
+imgs/monobe02.png 1

@@ -1,0 +1,2 @@
+imgs/megu01.jpg 0
+imgs/megu02.jpg 0
