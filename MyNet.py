@@ -9,8 +9,9 @@ from config import Config
 class MyNet(Chain):
 
     def __init__(self):
+        img_channels = 1 if Config.IMAGE_MONO else 3
         super(MyNet, self).__init__(
-            conv1=L.Convolution2D(Config.IMAGE_CHANNELS, Config.CONV1_OUT_CHANNELS, Config.CONV_SIZE),
+            conv1=L.Convolution2D(img_channels, Config.CONV1_OUT_CHANNELS, Config.CONV_SIZE),
             conv2=L.Convolution2D(Config.CONV1_OUT_CHANNELS, Config.CONV2_OUT_CHANNELS, Config.CONV_SIZE),
             l3=L.Linear(Config.NUM_HIDDEN_NEURONS1, Config.NUM_HIDDEN_NEURONS2),
             l4=L.Linear(Config.NUM_HIDDEN_NEURONS2, Config.NUM_CLASSES)

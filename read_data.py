@@ -5,10 +5,20 @@ from PIL import Image
 
 
 def read_one_image(filename):
-    # 画像を読み込んでモノクロ化（convert）→リサイズ
-    img = np.array(Image.open(filename).convert('L').resize((Config.IMAGE_SIZE, Config.IMAGE_SIZE), Image.ANTIALIAS))
+    # 画像を読み込んで･･･
+    img = Image.open(filename)
+    # モノクロ化（convert）
+    if Config.IMAGE_MONO:
+        img = img.convert('L')
+    # リサイズ
+    img = img.resize((Config.IMAGE_SIZE, Config.IMAGE_SIZE), Image.ANTIALIAS)
+    # np.array形式に変換
+    img = np.array(img)
     # (channel, height, width）の形式に変換
-    img = img[np.newaxis, :]
+    if Config.IMAGE_MONO:
+        img = img[np.newaxis, :]
+    else:
+        img = img.transpose([2, 0, 1])
     # 0-1のfloat値にする
     img / 255.0
     return img
