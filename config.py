@@ -29,7 +29,8 @@ class Config:
     #  全結合層の情報
     #-------------------------------------
     # 第１層目のニューロン数
-    # CONV_SIZEによって決まるが実行時に Chainer が教えてくれる
+    # CONV_SIZEによって決まる
+    # 間違って入れば実行時に Chainer が教えてくれる
     NUM_HIDDEN_NEURONS1 = 2304
     # 第２層目のニューロン数
     NUM_HIDDEN_NEURONS2 = 512
