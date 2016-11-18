@@ -39,4 +39,6 @@ def read_data(filename):
         # 対応するラベルを用意
         labels.append(int(l[1]))
     f.close()
+    images = np.array(images).astype(np.float32)
+    labels = np.array(labels).astype(np.int32)
     return images, labels
