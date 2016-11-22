@@ -9,14 +9,12 @@ from read_data import read_data
 
 
 train_images, train_labels = read_data('train.txt')
-test_images, test_labels = read_data('test.txt')
 
 model = MyNet()
 optimizer = optimizers.Adam()
 optimizer.setup(model)
 
 num_train = len(train_images)
-num_test = len(test_images)
 
 for epoch in range(100):
     accum_loss = None
