@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import numpy as np
 from chainer import optimizers, serializers
 
@@ -24,12 +22,12 @@ for epoch in range(100):
         x_sample = train_images[perm[i:(i + bs) if(i + bs < num_train) else (num_train - 1)]]
         y_sample = train_labels[perm[i:(i + bs) if(i + bs < num_train) else (num_train - 1)]]
 
-        model.cleargrads()
-        loss, acc = model.forward(x_sample, y_sample)
-        accum_loss = loss if accum_loss is None else accum_loss + loss
+        model.zerograds()
+        loss, acc = model.train(x_sample, y_sample)
+        loss.backward()
+        optimizer.update()
 
-    accum_loss.backward()
-    optimizer.update()
+        accum_loss = loss if accum_loss is None else accum_loss + loss
 
     if epoch % 10 == 0:
         print(epoch, accum_loss.data)

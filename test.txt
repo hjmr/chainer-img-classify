@@ -1,2 +1,4 @@
-imgs/megu01.jpg 0
-imgs/megu02.jpg 0
+imgs/megu04.JPG 0
+imgs/murao03.JPG 1
+imgs/xie03.JPG 0
+imgs/wang03.JPG 1

@@ -31,9 +31,9 @@ class Config:
     # 第１層目のニューロン数
     # CONV_SIZEによって決まる
     # 間違って入れば実行時に Chainer が教えてくれる
-    NUM_HIDDEN_NEURONS1 = 2304
+    NUM_HIDDEN_NEURONS1 = 50176
     # 第２層目のニューロン数
-    NUM_HIDDEN_NEURONS2 = 512
+    NUM_HIDDEN_NEURONS2 = 1024
 
     #-------------------------------------
     #  学習時のバッチサイズ

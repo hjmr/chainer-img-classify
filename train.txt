@@ -1,4 +1,9 @@
-imgs/ma01.jpg 0
-imgs/ma02.jpg 0
-imgs/monobe01.jpg 1
-imgs/monobe02.png 1
+imgs/megu01.JPG 0
+imgs/megu02.JPG 0
+imgs/megu03.JPG 0
+imgs/murao01.JPG 1
+imgs/murao02.JPG 1
+imgs/wang01.JPG 1
+imgs/wang02.JPG 1
+imgs/xie01.JPG 0
+imgs/xie02.JPG 0
