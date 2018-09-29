@@ -19,8 +19,8 @@ for epoch in range(100):
     bs = Config.BATCH_SIZE
     perm = np.random.permutation(num_train)
     for i in range(0, num_train, bs):
-        x_sample = train_images[perm[i:(i + bs) if(i + bs < num_train) else (num_train - 1)]]
-        y_sample = train_labels[perm[i:(i + bs) if(i + bs < num_train) else (num_train - 1)]]
+        x_sample = train_images[perm[i:(i + bs) if(i + bs < num_train) else num_train]]
+        y_sample = train_labels[perm[i:(i + bs) if(i + bs < num_train) else num_train]]
 
         model.zerograds()
         loss, acc = model.train(x_sample, y_sample)
