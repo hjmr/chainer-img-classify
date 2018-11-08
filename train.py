@@ -1,3 +1,5 @@
+import argparse
+
 import numpy as np
 from chainer import optimizers, serializers
 
@@ -6,7 +8,19 @@ from MyNet import MyNet
 from read_data import read_data
 
 
-train_images, train_labels = read_data('train.txt')
+def parse_arg():
+    parser = argparse.ArgumentParser(description='Train convolution network.')
+    parser.add_argument('-m', '--model', type=str,
+                        help='specify a file name where trained model will be saved to.')
+    parser.add_argument('-l', '--log_interval', type=int, default=10,
+                        help='An interval of displaying a log.')
+    parser.add_argument('train_data', type=str, nargs=1,
+                        help='a training data where the file name of an image and its class are on each of the lines.')
+    return parser.parse_args()
+
+
+args = parse_arg()
+train_images, train_labels = read_data(args.train_data[0])
 
 model = MyNet()
 optimizer = optimizers.Adam()
@@ -29,8 +43,8 @@ for epoch in range(100):
 
         accum_loss = loss if accum_loss is None else accum_loss + loss
 
-    if epoch % 10 == 0:
+    if epoch % args.log_interval == 0:
         print(epoch, accum_loss.data)
 
-outfile = "models/mynet.model"
-serializers.save_npz(outfile, model)
+if args.model is not None:
+    serializers.save_npz(args.model, model)
